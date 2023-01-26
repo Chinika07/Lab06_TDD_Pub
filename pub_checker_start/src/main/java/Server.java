@@ -16,13 +16,6 @@ public class Server {
         return age >= 18;
     }
 
-//    public boolean guestIsAbove18(int age) {
-//        if(age >= 18) {
-//            return true;
-//        }
-//        return false;
-//    }
-
     public boolean checkGuestHasEnoughMoney(int wallet) {
         if (wallet >= 5) {
             return true;
@@ -55,12 +48,4 @@ public class Server {
         }
     }
 
-    // Methods
-//    public String checkGuestsAge(int age) {
-//        if (age >= 18) {
-//            return "You are old enough to get served!";
-//        } else if (age < 18) {
-//            return "I'm sorry, you are not old enough to get served!";
-//        } else { return null; }
-//    }
 }
