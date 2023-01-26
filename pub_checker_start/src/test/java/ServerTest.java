@@ -14,8 +14,8 @@ public class ServerTest {
     public void setUp() {
 
         server = new Server();
-        guest = new Guest("Rashawn", 24, 100, 75, "Yes");
-        guest2 = new Guest("Skye", 16, 2, 40, "No");
+        guest = new Guest("Joel", 24, 100, 75, "Yes", '£');
+        guest2 = new Guest("Skye", 16, 2, 40, "No", '$');
     }
 
 
@@ -47,7 +47,7 @@ public class ServerTest {
     @Test
     void guest2HasEnoughMoney() {
         Boolean doesGuest2HaveEnoughMoney = server.checkGuestHasEnoughMoney(2);
-        assertThat(doesGuest2HaveEnoughMoney).isEqualTo("I'm sorry, you don't have enough money to purchase a drink");
+        assertThat(doesGuest2HaveEnoughMoney).isEqualTo(false);
     }
 
     // TODO: test that guest can only get served if sober enough (set sobriety level on guest)
@@ -67,17 +67,25 @@ public class ServerTest {
     @Test
     void guestIsBannedOrNot() {
         Boolean hasGuestBeenBannedFromPub = server.hasGuestBeenBannedFromPub("Yes");
-        assertThat(hasGuestBeenBannedFromPub).isEqualTo(true);
+        assertThat(hasGuestBeenBannedFromPub).isEqualTo(false);
     }
     @Test
     void guest2IsBannedOrNot() {
         Boolean hasGuest2BeenBannedFromPub = server.hasGuestBeenBannedFromPub("No");
-        assertThat(hasGuest2BeenBannedFromPub).isEqualTo(false);
+        assertThat(hasGuest2BeenBannedFromPub).isEqualTo(true);
     }
 
     // TODO: test that guest can only get served if guest can pay in local currency (add £ char as currency)
+    @Test
     void guestHasCorrectCurrency() {
+        Boolean doesGuestHaveTheCorrectCurrency = server.doesGuestHaveTheCorrectCurrency('£');
+        assertThat(doesGuestHaveTheCorrectCurrency).isEqualTo(true);
+    }
 
+    @Test
+    void guest2HasCorrectCurrency() {
+        Boolean doesGuest2HaveTheCorrectCurrency = server.doesGuestHaveTheCorrectCurrency('$');
+        assertThat(doesGuest2HaveTheCorrectCurrency).isEqualTo(false);
     }
 
     // EXTENSIONS

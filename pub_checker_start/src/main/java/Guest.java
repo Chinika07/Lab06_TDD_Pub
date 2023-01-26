@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Guest {
 
     // Properties
@@ -6,14 +8,17 @@ public class Guest {
     private int wallet;
     private int sobriety;
     private String bannedFromPub;
+    private char currency;
+
 
     // Constructor
-    public Guest(String name, int age, int wallet, int sobriety, String bannedFromPub){
+    public Guest(String name, int age, int wallet, int sobriety, String bannedFromPub, char currency){
         this.name = name;
         this.age = age;
         this.wallet = wallet;
         this.sobriety = sobriety;
         this.bannedFromPub = bannedFromPub;
+        this.currency = '£';
     }
 
     // Getters & Setters
@@ -31,7 +36,7 @@ public class Guest {
     public String getBannedFromPub() {return this.bannedFromPub;}
     public void setBannedFromPub(String bannedFromPub) {this.bannedFromPub = bannedFromPub;}
 
-
-
+    public char getCurrency() {return this.currency;}
+    public void setCurrency(char currency) {this.currency = currency;}
 
 }

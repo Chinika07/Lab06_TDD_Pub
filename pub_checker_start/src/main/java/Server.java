@@ -1,18 +1,27 @@
+
 public class Server {
 
     // Methods
     public boolean canServeGuest(Guest guest) {
-        if (checkAge(guest.getAge()) && checkGuestHasEnoughMoney(guest.getWallet()) && isGuestSoberEnough(guest.getSobriety())
-                && hasGuestBeenBannedFromPub(guest.getBannedFromPub())) {
+        if (guestIsAbove18(guest.getAge()) && checkGuestHasEnoughMoney(guest.getWallet()) && isGuestSoberEnough(guest.getSobriety())
+                && hasGuestBeenBannedFromPub(guest.getBannedFromPub()) && doesGuestHaveTheCorrectCurrency(guest.getCurrency())){
             return true;
         }
 
         return false;
     }
 
-    public boolean checkAge(int age) {
+
+        public boolean guestIsAbove18(int age) {
         return age >= 18;
     }
+
+//    public boolean guestIsAbove18(int age) {
+//        if(age >= 18) {
+//            return true;
+//        }
+//        return false;
+//    }
 
     public boolean checkGuestHasEnoughMoney(int wallet) {
         if (wallet >= 5) {
@@ -30,8 +39,16 @@ public class Server {
         }
     }
 
-    public boolean hasGuestBeenBannedFromPub(String bannedFromPub ) {
-        if ( bannedFromPub == "Yes") {
+    public boolean hasGuestBeenBannedFromPub(String bannedFromPub) {
+        if (bannedFromPub == "No") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean doesGuestHaveTheCorrectCurrency(char currency) {
+        if (currency == '£') {
             return true;
         } else {
             return false;
