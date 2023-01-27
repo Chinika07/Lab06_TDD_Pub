@@ -10,7 +10,6 @@ public class Guest {
     private String bannedFromPub;
     private char currency;
 
-
     // Constructor
     public Guest(String name, int age, int wallet, int sobriety, String bannedFromPub, char currency){
         this.name = name;
@@ -38,5 +37,6 @@ public class Guest {
 
     public char getCurrency() {return this.currency;}
     public void setCurrency(char currency) {this.currency = currency;}
+
 
 }

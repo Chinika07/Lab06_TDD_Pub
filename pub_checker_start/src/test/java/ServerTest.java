@@ -10,38 +10,38 @@ public class ServerTest {
     Guest guest;
     Guest guest2;
 
+    Guest favouriteDrink;
+
     @BeforeEach
     public void setUp() {
 
         server = new Server();
-        guest = new Guest("Joel", 24, 100, 75, "Yes", '£');
-        guest2 = new Guest("Skye", 16, 2, 40, "No", '$');
+        guest = new Guest("Rashawn", 24,100, 75, "Yes", '£');
+        guest2 = new Guest("Skye", 16,2, 40, "No", '$');
     }
-
 
     // 1. ARRANGE, 2. ACT, 3. ASSERT
 
     // TODO: test that guest can only get served if over 18
+
     @Test
-    void guestIsAbove18() {
-        Boolean isGuestAbove18 = server.canServeGuest(guest);
-        assertThat(isGuestAbove18).isEqualTo(true);
+    void ifGuestIsOver18() {
+        Boolean isGuestOver18 = server.isGuestOver18(24);
+        assertThat(isGuestOver18).isEqualTo(true);
     }
 
     @Test
-    void guest2IsAbove18() {
-        Boolean isGuest2Above18 = server.canServeGuest(guest2);
-        assertThat(isGuest2Above18).isEqualTo(false);
+    void ifGuest2IsOver18() {
+        Boolean isGuest2Over18 = server.isGuestOver18(16);
+        assertThat(isGuest2Over18).isEqualTo(false);
     }
-
-    // CheckAge
 
     // TODO: test that guest can only get served if has enough money to buy a drink (every drink is £5)
 
     @Test
     void guestHasEnoughMoney() {
-        Boolean doesGuest2HaveEnoughMoney = server.checkGuestHasEnoughMoney(100);
-        assertThat(doesGuest2HaveEnoughMoney).isEqualTo(true);
+        Boolean doesGuestHaveEnoughMoney = server.checkGuestHasEnoughMoney(100);
+        assertThat(doesGuestHaveEnoughMoney).isEqualTo(true);
     }
 
     @Test
@@ -88,10 +88,6 @@ public class ServerTest {
         assertThat(doesGuest2HaveTheCorrectCurrency).isEqualTo(false);
     }
 
-    // EXTENSIONS
-
-    // TODO: test that guest can only get served if server can make favourite drink
-    //  (give server a list of drinks (strings) it can make)
-
+    
 }
 

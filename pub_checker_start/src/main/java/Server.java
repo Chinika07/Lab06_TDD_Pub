@@ -3,7 +3,7 @@ public class Server {
 
     // Methods
     public boolean canServeGuest(Guest guest) {
-        if (guestIsAbove18(guest.getAge()) && checkGuestHasEnoughMoney(guest.getWallet()) && isGuestSoberEnough(guest.getSobriety())
+        if (isGuestOver18(guest.getAge()) && checkGuestHasEnoughMoney(guest.getWallet()) && isGuestSoberEnough(guest.getSobriety())
                 && hasGuestBeenBannedFromPub(guest.getBannedFromPub()) && doesGuestHaveTheCorrectCurrency(guest.getCurrency())){
             return true;
         }
@@ -11,8 +11,7 @@ public class Server {
         return false;
     }
 
-
-        public boolean guestIsAbove18(int age) {
+        public boolean isGuestOver18(int age) {
         return age >= 18;
     }
 
@@ -47,5 +46,6 @@ public class Server {
             return false;
         }
     }
+
 
 }
